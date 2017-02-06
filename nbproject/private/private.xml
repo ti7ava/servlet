@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/src/java/br/com/fabianoabreu/servlet/Contato.java</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/web/listaContato.jsp</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/web/adiciona-contato.jsp</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/src/java/br/com/fabianoabreu/servlet/ContatoDao.java</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/web/lista-contatos.jsp</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/src/java/br/com/fabianoabreu/servlet/mvc/logica/ListaContatosLogic.java</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/src/java/br/com/fabianoabreu/servlet/mvc/logica/MostraContatoLogic.java</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/src/java/br/com/fabianoabreu/servlet/mvc/logica/AlteraContatoLogic.java</file>
+            <file>file:/C:/Users/Renato/Documents/NetBeansProjects/infocon-agenda/src/java/br/com/fabianoabreu/servlet/mvc/servlet/ControllerServlet.java</file>
+        </group>
+    </open-files>
+</project-private>

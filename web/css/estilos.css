@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: greenyellow;
+    text-align: center;
+      
+}
+
+#pag{
+    margin: 0;
+    padding: 0;
+    
+    text-align: center;
+    width: 1366px;
+    
+}
+
+#logo{
+    width: 200px;
+    height: 180px;
+    float: left;
+    background: url("../images/INFOCON_logo.png");
+}
+
+#banner{
+    
+    width: 1166px;
+    height: 180px;
+    float: left;
+    background-color: #87CEFA;
+    
+}
+
+#titulo{
+    
+    width: 800px;
+    height: 180px;
+    float: left;
+    background-color: yellow;
+}
+
+#login{
+    
+    width: 366px;
+    height: 180px;
+    float: left;
+    background-color: brown;
+}
+
+#menu{
+    width: 250px;
+    height: 500px;
+    float: left;
+    background-image: url("../images/fundo_menu.jpg");
+    
+}
+#conteudo {
+    width: 1050px; 
+    height: 500px; 
+    float:left; 
+    background-image: url("../images/fundo_conteudo.jpg");
+}
+    
+#rodape{
+    
+    width: 1366px;
+    height: 50px;
+    float: left;
+    background-image: url("../images/rodape.jpg");
+}
+
+#menu ul {
+    list-style-type: none; /*remove o marcador*/
+    margin: 5px; /*remove o recuo IE e Opera*/
+    padding: 5px; /*remove o recuo Mozilla e NN*/
+    font-size:12px; font-family:verdana,arial, helvetica, sans-serif;
+}
+#menu ul li {height:20px;}
+
+#menu a {
+    display: block;
+    padding: 1px 0 1px 25px;
+    border: 1px solid #000000;
+    width: 180px;
+    background-color: #339966;
+    color: #0000ff;
+    text-decoration: none;
+    background-image: url(../images/fundo_1.jpg);
+    width:153px;
+}
+#menu a:hover {
+    border: 1px solid #000000;
+    background-color:#FFFF99;
+    background-image: url(../images/fundo_2.jpg);
+    color:#000000;
+}
+#menu a:active {
+    border: 1px solid #000000;
+    background-color:#FFFF99;
+    background-image: url(../images/fundo_3.jpg);
+    color:#000000;
+}

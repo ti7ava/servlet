@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Cadastro</title>
+        <style type="text/css">
+            td {text-transform: capitalize}
+        </style>
+    </head>
+    <body>
+        <form name="cadastro" action="" method="post">
+            <table width="60%" align="center" >
+                <tr>
+                    <th colspan="2">Cadastro</th>
+                </tr>
+                <tr>
+                    <td>nome:</td>
+                    <td>
+                        <input type="text" name="nome" size="60" maxlength="60"
+                               onkeypress="if (event.keyCode >= 33 && event.keyCode <= 64)
+                                           event.returnValue = false;">
+                        <!-- nesta linha bloqueei os numeros e caracteres especiais com a tabela ascII -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>user:</td>
+                    <td><input type="text" name="user" size="20" style="text-transform:none" ></td>
+                </tr>
+                <tr>
+                    <td>senha:</td>
+                    <td><input type="password" name="senha" size="20" style="text-transform:none" ></td>
+                </tr>
+                <tr>
+                    <td>endereço:</td>
+                    <td><input type="text" name="endereco" size="60" maxlength="60"></td>
+                </tr>
+                <tr>
+                    <td>estado</td>
+                    <td>
+                        <!-- Colocar dropdown de estado aqui -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>nascionalidade</td>
+                    <td>
+
+                        <!-- Colocar dropdown de estado aqui -->
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>email:</td>
+                    <td><input type="text" name="email" size="40" > (xxx@xx.xx)</td>
+                </tr>
+                <tr>
+                    <td>telefone:</td>
+                    <td><input type="text" name="telefone" size="20" ></td>
+                </tr>
+                <tr>
+                    <td>Data de nascimento:</td>
+                    <td><input type="text" name="nasce" > (dd/mm/yyyy)</td>
+                </tr>
+                <tr>
+                    <td>Sexo :</td>
+                    <td><input type="radio" name="sexo"  value="masculino" id="sexo">  Masculino
+                        <input type="radio" name="sexo"  value="feminino" id="sexo"> Feminino
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" >
+                        <div align="center">
+                            <input type="reset" value="Limpar">
+                            <input type="submit" name="enviar"  value="enviar">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
