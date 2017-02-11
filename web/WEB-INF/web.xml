@@ -10,7 +10,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdicionaContatoServlet</servlet-name>
-        <url-pattern>/adicionaContato</url-pattern>
+        <url-pattern>/AdicionaContatoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Contador</servlet-name>
@@ -39,6 +39,9 @@
         <servlet-name>servletOiMundo</servlet-name>
         <url-pattern>/oi</url-pattern>
     </servlet-mapping>
+    
+    
+    
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/erro.html</location>

@@ -80,7 +80,9 @@ pattern="dd/MM/yyyy" /></td>
 
 </tr>
 </c:forEach>
+
 </table>
+
 
 
 

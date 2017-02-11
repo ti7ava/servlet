@@ -5,9 +5,10 @@
  */
 package br.com.fabianoabreu.filtro;
 
-
-
+import br.com.fabianoabreu.servlet.ConnectionFactory;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -15,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @WebFilter("/*")
-public class FiltroTempoDeExecucao implements Filter{
+public class FiltroConexao implements Filter{
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -31,26 +31,18 @@ public class FiltroTempoDeExecucao implements Filter{
     }
 
     @Override
-    
-       
-public void doFilter(ServletRequest request,ServletResponse response, FilterChain chain)
-throws IOException, ServletException {
-    //toda requisicao entra aqui
-long tempoInicial = System.currentTimeMillis();
-System.out.println("Filtro1");
-
-//depois o fluxo é encaminhado para o destino correto
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+      
+        try {
+            System.out.println("Filtro2");
+Connection connection = new ConnectionFactory().getConnection();
+// pendurando a connection na requisição
+request.setAttribute("conexao", connection);
 chain.doFilter(request, response);
-
-//volta e e xecuta aqui para baixo
-long tempoFinal = System.currentTimeMillis();
-String uri = ((HttpServletRequest)request).getRequestURI();
-String parametros = ((HttpServletRequest) request)
-.getParameter("logica");
-System.out.println("Tempo da requisicao de " + uri
-+ "?logica="
-+ parametros + " demorou (ms): "
-+ (tempoFinal - tempoInicial));
+connection.close();
+} catch (SQLException e) {
+throw new ServletException(e);
+}
         
     }
 
@@ -58,7 +50,5 @@ System.out.println("Tempo da requisicao de " + uri
     public void destroy() {
         
     }
-    
-    
     
 }

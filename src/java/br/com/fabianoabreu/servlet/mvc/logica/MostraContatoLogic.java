@@ -7,6 +7,7 @@ package br.com.fabianoabreu.servlet.mvc.logica;
 
 import br.com.fabianoabreu.servlet.Contato;
 import br.com.fabianoabreu.servlet.ContatoDao;
+import java.sql.Connection;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +29,9 @@ public class MostraContatoLogic implements Logica{
 //        Contato contato = new Contato();
 //        contato.setId(Long.parseLong(id));
         Contato contato = new Contato();
-        ContatoDao dao = new ContatoDao();
+        Connection connection = (Connection) req.getAttribute("conexao");
+// passe a conexão no construtor
+ContatoDao dao = new ContatoDao(connection);
         
         
         System.out.println("");

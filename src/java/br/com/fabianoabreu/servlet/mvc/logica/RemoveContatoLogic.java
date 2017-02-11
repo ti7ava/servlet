@@ -7,6 +7,7 @@ package br.com.fabianoabreu.servlet.mvc.logica;
 
 import br.com.fabianoabreu.servlet.Contato;
 import br.com.fabianoabreu.servlet.ContatoDao;
+import java.sql.Connection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +25,9 @@ public String executa(HttpServletRequest req, HttpServletResponse res)throws Exc
 
 Contato contato = new Contato();
 contato.setId(id);
-ContatoDao dao = new ContatoDao();
+Connection connection = (Connection) req.getAttribute("conexao");
+// passe a conexão no construtor
+ContatoDao dao = new ContatoDao(connection);
 dao.remove(contato);
 System.out.println("Excluindo contato... ");
 //return "lista-contatos.jsp";

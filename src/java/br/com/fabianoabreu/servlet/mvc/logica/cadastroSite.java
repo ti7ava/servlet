@@ -16,49 +16,47 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Renato
+ * @author Ten Renato
  */
-public class AlteraContatoLogic implements Logica{
+public class cadastroSite implements Logica{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         
- String id = req.getParameter("id");
- String nome = req.getParameter("nome");
- String endereco = req.getParameter("endereco");
- String email = req.getParameter("email");
- String dataemTexto = req.getParameter("dataNascimento");
- 
- 
- 
- System.out.println("Id recebido:------>"+id);
- 
+     
+ String login = req.getParameter("login");
+ String senha = req.getParameter("senha");
+  
 Contato contato = new Contato();
-contato.setId(Long.parseLong(id));
-contato.setNome(nome);
-contato.setEmail(email);
-contato.setEndereco(endereco);
+contato.setLogin(login);
+contato.setSenha(senha);
+contato.setEndereco("Site Infocon");
+contato.setNome(login);
+contato.setEmail(login);
 
-Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataemTexto);
-Calendar dataNascimento = Calendar.getInstance();
-dataNascimento.setTime(date);
+Calendar data = Calendar.getInstance();
+contato.setDataNascimento(data);
 
 
 
-contato.setDataNascimento(dataNascimento);
 
 Connection connection = (Connection) req.getAttribute("conexao");
 // passe a conexão no construtor
 ContatoDao dao = new ContatoDao(connection);
-dao.altera(contato);
+dao.adiciona(contato);
 
-System.out.println("Alterando contato... ");
+
+
+System.out.println("Adicionando contato... ");
 //return "lista-contatos.jsp";
+
 return "mvc?logica=ListaContatosLogic"; //To change body of generated methods, choose Tools | Templates.
     }
-   
+    }
     
-    
-}
 
+
+        
+    
+    
 

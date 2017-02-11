@@ -1,26 +1,68 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        
         <meta charset="UTF-8">
+        <script type="text/javascript" src="js/jquery.js"></script>
     </head>
     <body>
-        <form name="frmLogin" method="post" action="">
+        <form id="formulario" name="cadastroSite" action="mvc" >
+        <input type="hidden" name="logica" value="cadastroSite" />
+        
             <br><br>
-            <table width="250" align="center">
-                <caption>Autenticação:</caption>
+            <table width="450" align="center">
+                <caption><h2>Cadastro no Site:</h2></caption>
                 <tr>
-                    <td>Identificação:</td>
-                    <td><input type="text" name="login" size="10" /></td>
+                    <td>Login:</td>
+                    <td><input type="text" name="login" id="loginID" size="10" /> Coloque seu Email</td>
                 </tr>
                 <tr>
                     <td>Senha:</td>
-                    <td><input type="password" name="senha" size="10" /></td>
+                    <td><input type="password" name="senha"  id="senhaPass" size="10" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Entrar" /></td>
+                    <td> <a href="#" onclick="cadastro()"><input type="button" value="Cadastro" name="Cadastro2" /></a></td>
                 </tr>
+                <!--<tr>
+                    <td colspan="2"><input type="submit" value="Entrar" /></td>
+                </tr>-->
+                
             </table>
-            <input type="hidden" name="acao" value="login" />
+            
         </form>
+        
+       
+        
+        
+        <script type="text/javascript">
+            
+function cadastro(){
+
+var form = document.getElementById('formulario');
+var login = document.getElementById('loginID');
+var senha = document.getElementById('senhaPass');
+
+
+    // alerta o valor do campo
+    //alert("Login: "+login.value+"Senha: "+senha.value);
+    
+    $.get("mvc?logica=cadastroSite&login="+document.getElementById('loginID').value+"&senha="+document.getElementById('senhaPass').value);
+
+alert("Cadastro realizado com sucesso!!!!");
+
+document.getElementById('loginID').value="";
+document.getElementById('senhaPass').value="";
+    // impede o envio do form
+    
+}
+</script>
+        
+        
+    
+    
+        
+    
+    
+    
     </body>
 </html>

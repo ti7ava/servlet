@@ -25,14 +25,14 @@ public class ContatoDao {
     // a conexão com o banco de dados
    private Connection connection;
  
-   public ContatoDao() {
-     this.connection = new ConnectionFactory().getConnection();
-   }
+   public ContatoDao(Connection connection) {
+this.connection = connection;
+}
   
    public void adiciona(Contato contato) {
      String sql = "insert into contatos " +
-             "(nome,email,endereco,dataNascimento)" +
-             " values (?,?,?,?)";
+             "(nome,email,endereco,dataNascimento,login,senha)" +
+             " values (?,?,?,?,?,?)";
  
      try {
          // prepared statement para inserção
@@ -44,6 +44,8 @@ public class ContatoDao {
          stmt.setString(3,contato.getEndereco());
          stmt.setDate(4, new Date(
                  contato.getDataNascimento().getTimeInMillis()));
+         stmt.setString(5, contato.getLogin());
+         stmt.setString(6, contato.getSenha());
  
          // executa
          stmt.execute();
@@ -232,6 +234,37 @@ public class ContatoDao {
          
          return contato;
    } 
+
+    public String autentica(Contato contato) {
+        
+        String autenticacao = "Usuario não autenticado";
+        
+        String sql = "SELECT login, senha FROM contatos WHERE login=? AND senha = ?";
+        
+        //String sql = "SELECT * FROM contatos";
+              //  + " WHERE login = ? AND senha = ?";
+        
+        
+       try {
+         PreparedStatement stmt = connection
+                 .prepareStatement(sql);
+         stmt.setString(1, contato.getLogin());
+         stmt.setString(2, contato.getSenha());
+         ResultSet rs = stmt.executeQuery();
+         
+         while (rs.next()) {
+             
+             autenticacao = "Usuario autenticado";
+         }
+         rs.close();
+         stmt.close();
+         return autenticacao;
+         
+     } catch (SQLException e) {
+         throw new RuntimeException(e);
+     } 
+        
+    }
  
    
    

@@ -7,9 +7,11 @@ package br.com.fabianoabreu.servlet.mvc.logica;
 
 import br.com.fabianoabreu.servlet.Contato;
 import br.com.fabianoabreu.servlet.ContatoDao;
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,18 +33,39 @@ public class AdicionaContatoLogic implements Logica{
  Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataemTexto);
 Calendar dataNascimento = Calendar.getInstance();
 dataNascimento.setTime(date);
+String login = req.getParameter("login");
+String senha = req.getParameter("senha");
+
  
 Contato contato = new Contato();
 contato.setNome(nome);
 contato.setEmail(email);
 contato.setEndereco(endereco);
 contato.setDataNascimento(dataNascimento);
+contato.setLogin(login);
+contato.setSenha(senha);
 
-ContatoDao dao = new ContatoDao();
+Connection connection = (Connection) req.getAttribute("conexao");
+// passe a conexão no construtor
+ContatoDao dao = new ContatoDao(connection);
 dao.adiciona(contato);
 
 System.out.println("Adicionando contato... ");
 //return "lista-contatos.jsp";
+
+//RequestDispatcher rd = req.getRequestDispatcher("mvc?logica=ListaContatosLogic");
+//rd.forward(req, res);
+
+
+//req.removeAttribute(nome);
+//req.removeAttribute(email);
+//req.removeAttribute(endereco);
+//req.removeAttribute(dataemTexto);
+//req.removeAttribute(login);
+//req.removeAttribute(senha);
+
+
+
 return "mvc?logica=ListaContatosLogic"; //To change body of generated methods, choose Tools | Templates.
     }
     }

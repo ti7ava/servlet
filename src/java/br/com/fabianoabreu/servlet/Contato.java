@@ -18,6 +18,8 @@ public class Contato {
   private String email;
   private String endereco;
   private Calendar dataNascimento;
+  private String login;
+  private String Senha;
 
   // métodos get e set para id, nome, email, endereço e dataNascimento
 
@@ -55,5 +57,33 @@ public class Contato {
   public void setDataNascimento(Calendar dataNascimento) {
     this.dataNascimento = dataNascimento;
   }
+
+    /**
+     * @return the login
+     */
+    public String getLogin() {
+        return login;
+    }
+
+    /**
+     * @param login the login to set
+     */
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    /**
+     * @return the Senha
+     */
+    public String getSenha() {
+        return Senha;
+    }
+
+    /**
+     * @param Senha the Senha to set
+     */
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
+    }
     
 }

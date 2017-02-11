@@ -12,15 +12,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Renato
  */
-public class PrimeiraLogica implements Logica{
+public class autenticacao implements Logica{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        System.out.println("Executando a logica ...");
-        System.out.println("Retornando o nome da página JSP ...");
-        return "primeira-logica.jsp"; //To change body of generated methods, choose Tools | Templates.
+        
+//      String login = req.getParameter("login");
+//      String senha = req.getParameter("senha");
+//        
+return "/WEB-INF/jsp/autenticaUser.jsp";
+//      
+//      
+//      
+      
+      
+            
+        
     }
-    
-    
     
 }
