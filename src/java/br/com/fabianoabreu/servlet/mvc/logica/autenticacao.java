@@ -22,12 +22,7 @@ public class autenticacao implements Logica{
 //        
 return "/WEB-INF/jsp/autenticaUser.jsp";
 //      
-//      
-//      
-      
-      
-            
-        
     }
+    
     
 }

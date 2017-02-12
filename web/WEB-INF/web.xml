@@ -22,7 +22,7 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            3 <!--3 minutos-->
         </session-timeout>
     </session-config>
     <servlet>

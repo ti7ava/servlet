@@ -81,6 +81,8 @@ function cadastro(){
     //alert("Login: "+login.value+"Senha: "+senha.value);
     
     // $.get impede o reenvio do form no refresh da pagina
+    //enviar requisições assíncronas, ou seja, manter a página que estava aberta intacta, 
+    //e recuperar a resposta dessa requisição para fazermos qualquer processamento com eles.
     $.get("mvc?logica=AdicionaContatoLogic&login="+document.getElementById('login').value+"&senha="+document.getElementById('senha').value+
             "&endereco="+document.getElementById('endereco').value+"&nome="+document.getElementById('nome').value+"&email="+
             document.getElementById('email').value+"&dataNascimento="+document.getElementById('dataNascimento').value);

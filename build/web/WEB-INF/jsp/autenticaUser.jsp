@@ -13,7 +13,7 @@
     </head>
     <body>
         
-        <form name="validaUsuario" action="mvc" >
+        <form name="validaUsuario" action="mvc" method="POST">
         <input type="hidden" name="logica" value="validacao" />
             <table border="0">
                 <thead>
