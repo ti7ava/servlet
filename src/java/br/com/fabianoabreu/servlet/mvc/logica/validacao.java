@@ -20,48 +20,16 @@ import javax.servlet.http.HttpSession;
 public class validacao implements Logica {
 
 
-public class Usuario{
-    
-private String login;
-
-        /**
-         * @return the login
-         */
-        public String getLogin() {
-            return login;
-        }
-
-        /**
-         * @param login the login to set
-         */
-        public void setLogin(String login) {
-            this.login = login;
-        }
-        
-}
-    
-    
-    
   // A sessão é parecida com um objeto do tipo Map<String, Object>, podemos guardar nela qualquer objeto
 //que quisermos dando-lhes uma chave que é uma String. 
-public String efetuaLogin(Usuario usuario, HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
-
- 
- String autenticacao = usuario.getLogin();
-if (autenticacao.equals("Usuario autenticado")){
-session.setAttribute("usuarioLogado", usuario);
-
-return "/WEB-INF/jsp/menu.jsp";
-}else return "/WEB-INF/jsp/autenticaUser.jsp";
-
-}
-    
-
+  
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
+        
+        System.out.println("Usuario de login---->"+login);
 
         Connection connection = (Connection) req.getAttribute("conexao");
 // passe a conexão no construtor
@@ -72,23 +40,24 @@ return "/WEB-INF/jsp/menu.jsp";
         ContatoDao dao = new ContatoDao(connection);
         String autenticacao = dao.autentica(contato);
         
-        
-
+         
+         HttpSession session = req.getSession(); 
         if (autenticacao.equals("Usuario autenticado")) {
            
-            Usuario usuario = new Usuario();
-            usuario.setLogin("Usuario autenticado");
+            System.out.println("Usuario situacao:--->"+autenticacao);
+            //usuario.setLogin(login);
             
-            validacao validado = new validacao();
-            HttpSession session = req.getSession(true); 
-            validado.efetuaLogin(usuario, req, res, session);
-            
-            return "/WEB-INF/jsp/menu.jsp";
-        } 
-        
-        else {
+            session.setAttribute("login",login);
 
-            return "404.html";
+            return "/WEB-INF/jsp/menu.jsp";
+}
+            
+        else {
+            session.setAttribute("login",null);
+            session.invalidate();
+            
+            //usuario.setLogin(null);
+            return "/WEB-INF/jsp/autenticaUser.jsp";
         }
 
     }

@@ -42,7 +42,7 @@ System.out.println("Filtro1");
 //depois o fluxo é encaminhado para o destino correto
 chain.doFilter(request, response);
 
-//volta e e xecuta aqui para baixo
+//na volta executa aqui para baixo
 long tempoFinal = System.currentTimeMillis();
 String uri = ((HttpServletRequest)request).getRequestURI();
 String parametros = ((HttpServletRequest) request)
