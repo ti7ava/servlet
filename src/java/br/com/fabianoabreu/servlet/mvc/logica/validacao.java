@@ -20,8 +20,8 @@ import javax.servlet.http.HttpSession;
 public class validacao implements Logica {
 
 
-  // A sessão é parecida com um objeto do tipo Map<String, Object>, podemos guardar nela qualquer objeto
-//que quisermos dando-lhes uma chave que é uma String. 
+  // A sessÃ£o Ã© parecida com um objeto do tipo Map<String, Object>, podemos guardar nela qualquer objeto
+//que quisermos dando-lhes uma chave que Ã© uma String. 
   
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -32,7 +32,7 @@ public class validacao implements Logica {
         System.out.println("Usuario de login---->"+login);
 
         Connection connection = (Connection) req.getAttribute("conexao");
-// passe a conexão no construtor
+// passe a conexÃ£o no construtor
         Contato contato = new Contato();
         contato.setLogin(login);
         contato.setSenha(senha);
@@ -49,7 +49,7 @@ public class validacao implements Logica {
             
             session.setAttribute("login",login);
 
-            return "/WEB-INF/jsp/menu.jsp";
+            return "/restricao/menu.jsp";
 }
             
         else {

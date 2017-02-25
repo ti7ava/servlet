@@ -255,6 +255,7 @@ this.connection = connection;
          while (rs.next()) {
              
              autenticacao = "Usuario autenticado";
+             System.out.println("User de nome: "+contato.getLogin());
          }
          rs.close();
          stmt.close();

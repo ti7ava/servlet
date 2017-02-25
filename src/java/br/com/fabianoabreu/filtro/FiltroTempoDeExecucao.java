@@ -39,6 +39,8 @@ throws IOException, ServletException {
 long tempoInicial = System.currentTimeMillis();
 System.out.println("Filtro1");
 
+
+
 //depois o fluxo é encaminhado para o destino correto
 chain.doFilter(request, response);
 
